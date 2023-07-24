@@ -20,15 +20,13 @@ const App = () => {
 
   return (
     <Router>
-      <div>
         <Routes>
           <Route exact path="/" element={<Home users={users} />} />
           <Route path="/profile/:id" element={<UserProfile users={users} />} />
-          <Route path="/post/:id" element={<Post />} />
-          <Route path="/gallery/:id" element={<Gallery />} />
-          <Route path="/todo/:id" element={<ToDo />} />
+          <Route path="/post/:id" element={<Post users={users}/>} />
+          <Route path="/gallery/:id" element={<Gallery users={users}/>} />
+          <Route path="/todo/:id" element={<ToDo users={users}/>} />
         </Routes>
-      </div>
     </Router>
   );
 };

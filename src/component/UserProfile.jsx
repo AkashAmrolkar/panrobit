@@ -2,6 +2,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import Navbar from './Navbar';
+import MapContainer from './MapContainer';
 
 const UserProfile = ({ users }) => {
 
@@ -9,7 +11,7 @@ const UserProfile = ({ users }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { id } = useParams();
   const user = users.find((user) => user.id === parseInt(id));
-
+  console.log(user);
   if (!user) {
     return <div>User not found.</div>;
   }
@@ -26,6 +28,8 @@ const UserProfile = ({ users }) => {
   return (
     <div className="p-12 grid grid-cols-8">
       <div className=" min-h-screen col-span-2 bg-gradient-to-b from-indigo-500 to-purple-500 rounded-3xl flex justify-start items-center">
+        {/*
+      
           <ul className="flex flex-col gap-4 justify-start items-start w-full px-8">
             <li className="text-slate-300 text-xl font-normal border-b-2 py-3 border-slate-400 w-full">Profile</li>
             <li className="text-slate-300 text-xl font-normal border-b-2 py-3 border-slate-400 w-full">Post</li>
@@ -33,6 +37,10 @@ const UserProfile = ({ users }) => {
             <li className="text-slate-300 text-xl font-normal py-3 border-slate-400 w-full">ToDo</li>
 
           </ul>
+
+      */} 
+
+        <Navbar usrs={users} />
       </div>
       <div className="col-span-6">
         <div>
@@ -81,6 +89,9 @@ const UserProfile = ({ users }) => {
           <div className="mb-3"><span className=" text-gray-400 text-lg font-normal">Suite: </span><span className="text-black font-medium text-xl">{user.address.suite}</span></div>
           <div className="mb-3"><span className=" text-gray-400 text-lg font-normal">City: </span><span className="text-black font-medium text-xl">{user.address.city}</span></div>
           <div className="mb-3"><span className=" text-gray-400 text-lg font-normal">Zipcode: </span><span className="text-black font-medium text-xl">{user.address.zipcode}</span></div>
+        </div>
+        <div>
+          <MapContainer latitude={Number(user.address.geo.lat)} longitude={Number(user.address.geo.lng)} />
         </div>
 
           
