@@ -4,7 +4,8 @@ import home from '../assets/home.png'
 const Home = ({users}) => {
   return (
     <>
-      <div className="w-full bg-cover bg-no-repeat wave-bg" style={{ backgroundImage: home }}>
+      <div className="w-full bg-cover bg-no-repeat wave-bg" style={{
+        backgroundImage: `url(${home})`}}>
       <div className="relative w-1/2 mx-auto shadow-sm h-2/5 bg-white border-transparent rounded-md overflow-scroll">
         <div className="flex flex-col justify-center items-center">
         <h2 className="font-bold capitalize text-3xl text-black text-center py-20 bg-gray-300 w-full">Select an account</h2>
